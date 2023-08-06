@@ -12,17 +12,23 @@
 
 /dts-v1/;
 
-#include "msm8916-sec-e7-eur-r01.dtsi"
+#include "msm8916-sec-e7-eur-r03.dtsi"
 #include "msm8916-memory.dtsi"
 
 / {
-	model = "MSM8916 SAMSUNG E7 PROJECT REV01";
+	model = "MSM8916 SAMSUNG E7 PROJECT REV02";
 	compatible = "qcom,msm8916-mtp", "qcom,msm8916", "qcom,mtp";
 	/*QCOM BOARD REV TYPE...*/
         /*qcom,board-id = <8 0>;*/
         /*SEC BOARD REV TYPE...*/
-	qcom,board-id = <0xCE08FF01 1>;
+	qcom,board-id = <0xCE08FF01 3>;
         /*parm1)[31:20]platform_id [19:12]qc_hw_id [11:4]national code [3:0] operator, param2)SEC hw-rev*/
+};
+
+/* overwrite s2 cpr voltage for model variant */
+&apc_vreg_corner {
+	qcom,cpr-voltage-ceiling = <1050000 1150000 1350000>;
+	qcom,cpr-voltage-floor = <1050000 1050000 1162500>;
 };
 
 &modem_adsp_mem {

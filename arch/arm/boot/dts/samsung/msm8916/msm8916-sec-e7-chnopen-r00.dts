@@ -12,7 +12,7 @@
 
 /dts-v1/;
 
-#include "msm8916-sec-e7-chnopen-r00.dtsi"
+#include "msm8916-sec-e7-eur-r00.dtsi"
 #include "msm8916-memory.dtsi"
 
 / {
@@ -23,4 +23,26 @@
         /*SEC BOARD REV TYPE...*/
 	qcom,board-id = <0xCE08FF01 0>;
         /*parm1)[31:20]platform_id [19:12]qc_hw_id [11:4]national code [3:0] operator, param2)SEC hw-rev*/
+};
+
+&modem_adsp_mem {
+	reg = <0x0 0x86800000 0x0 0x05a00000>;
+};
+
+&peripheral_mem {
+	reg = <0x0 0x8C200000 0x0 0x0600000>;
+};
+
+&venus_mem {
+	reg = <0x0 0x8C800000 0x0 0x0500000>;
+};
+
+&secure_mem {
+	reg = <0 0 0 0x6D00000>;
+};
+
+/*overwrite s2 cpr voltage for model variant*/
+&apc_vreg_corner {
+        qcom,cpr-voltage-ceiling = <1050000 1150000 1350000>;
+        qcom,cpr-voltage-floor = <1050000 1050000 1162500>;
 };

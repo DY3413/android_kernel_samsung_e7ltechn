@@ -49,6 +49,8 @@ ifeq ($(CONFIG_SEC_E7_PROJECT),y)
 	else ifeq ($(CONFIG_MACH_E7_CHN_OPEN),y)
 		dtb-y += msm8916-sec-e7-chnopen-r00.dtb
 		dtb-y += msm8916-sec-e7-chnopen-r01.dtb
+		dtb-y += msm8916-sec-e7-chnopen-r02.dtb
+		dtb-y += msm8916-sec-e7-chnopen-r03.dtb
 	else ifeq ($(CONFIG_MACH_E7_CHN_CTC),y)
 		dtb-y += msm8916-sec-e7-ctc-r00.dtb
 		dtb-y += msm8916-sec-e7-ctc-r01.dtb
